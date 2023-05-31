@@ -1,0 +1,26 @@
+﻿{
+    "name": "anogame.ucp.uisystem",
+    "version": "0.0.1",
+    "displayName": "UI System",
+    "description": "UI System",
+    "unity": "2019.1",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/everystudio/ucp.uisystem.git"
+    },
+    "author": "anogame.watanabe",
+    "dependencies": {
+    },
+    "keywords": [
+        "system"
+    ],
+    "samples":
+    [
+        {
+            "displayName":"Simple Demo",
+            "description":"How to use UI System",
+            "path":"Demo~/SimpleDemo"
+        }
+    ]
+}
