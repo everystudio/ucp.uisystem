@@ -83,12 +83,10 @@ namespace anogame
             }
             initialized = true;
         }
-
-        public GameObject AddPanel(string strName, LAYER layer)
+        public GameObject AddPanel(GameObject panelPrefab, LAYER layer)
         {
-            GameObject prefab = Resources.Load(strName) as GameObject;
-            prefab.SetActive(true);
-            GameObject addPanel = Instantiate(prefab, layerRectTransforms[(int)layer]);
+            panelPrefab.SetActive(true);
+            GameObject addPanel = Instantiate(panelPrefab, layerRectTransforms[(int)layer]);
 
             if (addPanel.GetComponent<CanvasGroup>() == null)
             {
@@ -111,13 +109,23 @@ namespace anogame
             uiPanel?.Initialize();
 
             //Debug.Log(strName);
-            _panelDictionary.Add(strName, addPanel);
+            _panelDictionary.Add(panelPrefab.name, addPanel);
             return addPanel;
+        }
+
+        public GameObject AddPanel(string strName, LAYER layer)
+        {
+            GameObject prefab = Resources.Load(strName) as GameObject;
+            return AddPanel(prefab, layer);
         }
 
         public GameObject AddPanel(string strName)
         {
             return AddPanel(strName, LAYER.MAIN_CONTENTS);
+        }
+        public GameObject AddPanel(GameObject prefab)
+        {
+            return AddPanel(prefab, LAYER.MAIN_CONTENTS);
         }
 
         public void RemovePanel(GameObject panelGameObject)
